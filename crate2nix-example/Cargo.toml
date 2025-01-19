@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+# Absolutely unneeded to use git, but it introduces a vendored dependecy so that its hash has to be declared in buildRustPackage
 tokio = { git = "https://github.com/tokio-rs/tokio.git", tag = "tokio-1.43.0", default-features = false, features = [ "rt", "macros", "sync", "time" ] }
 
 

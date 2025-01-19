@@ -1,0 +1,10 @@
+= Build Rust in Nix
+
+Examples of building rust projects using Nix
+
+== Tools
+* `rustPlatform.buildRustPackage`: ./buildrustpackage-example
+* `crate2nix`: ./crate2nix-example
+
+== Notes
+I'm including the Tokio dependency as a git repo. It is absolutely unneeded but it forces to show how to deal with outputHashes for `buildRustPackage`.
