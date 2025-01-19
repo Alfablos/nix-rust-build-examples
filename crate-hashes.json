@@ -1,0 +1,4 @@
+{
+  "git+https://github.com/tokio-rs/tokio.git?tag=tokio-1.43.0#tokio-macros@2.5.0": "0jlyzmfqg32j6a6yja882hnk49yyg1r20qbwv4qi1586xr65dx0q",
+  "git+https://github.com/tokio-rs/tokio.git?tag=tokio-1.43.0#tokio@1.43.0": "0jlyzmfqg32j6a6yja882hnk49yyg1r20qbwv4qi1586xr65dx0q"
+}

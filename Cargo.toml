@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "buildrustpackage-example",
+  "crate2nix-example"
+]
+resolver = "2"	# Required by crate2nix. See also: https://doc.rust-lang.org/cargo/reference/resolver.html#resolver-versions

@@ -1,0 +1,10 @@
+[package]
+name = "crate2nix-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { git = "https://github.com/tokio-rs/tokio.git", tag = "tokio-1.43.0", default-features = false, features = [ "rt", "macros", "sync", "time" ] }
+
+
+
