@@ -33,7 +33,7 @@
           buildRustPackageExample =
             nixpkgs.legacyPackages.${system}.callPackage ./buildrustpackage-example { };
 
-          # First you need to generate a Cargo.lock file! Then `cd ccrate2nix-example && crate2nix generate`
+          # First you need to generate a Cargo.lock file for the WORKSPACE! No other Cargo.lock must be present!
           crate2nixExample =
             # let
             #   cargoNix = pkgs.callPackage ./Cargo.nix { };
