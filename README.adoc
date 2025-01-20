@@ -7,4 +7,6 @@ Examples of building rust projects using Nix
 * `crate2nix`: ./crate2nix-example
 
 == Notes
-I'm including the Tokio dependency as a git repo. It is absolutely unneeded but it forces to show how to deal with outputHashes for `buildRustPackage`.
+* I'm including the Tokio dependency as a git repo. It is absolutely unneeded but it forces to show how to deal with outputHashes for `buildRustPackage`.
+
+* I explicitly set lld as a linker since I'm not sure if it's the default for the stable channel. It is [.underline]#provided by `pkgs.llvmPackages.ld#, which is a wrapper around `lld`.
