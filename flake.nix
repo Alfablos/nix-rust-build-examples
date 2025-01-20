@@ -47,13 +47,33 @@
             cargoNix.workspaceMembers.crate2nix-example.build;
         };
 
-        devShells.default = pkgs.mkShell {
-          inputsFrom = [ (pkgs.callPackage ./default.nix { }) ];
-          buildInputs = with pkgs; [
-            rust-analyzer
-            rustfmt
-            clippy
-          ];
+        devShells =
+        let
+            shellHook = ''
+            alias rustrover="tmux new -d '/home/antonio/.local/share/JetBrains/Toolbox/apps/rustrover/bin/rustrover .'"
+            alias v=nvim
+            '';
+            commonBuildInputs = with pkgs; [
+                rust-analyzer
+                rustfmt
+                clippy
+                llvmPackages.bintools
+            ];
+        in
+        {
+            buildRustPackage = pkgs.mkShell {
+              inputsFrom = [ (pkgs.callPackage ./buildrustpackage-example/default.nix { }) ];
+              buildInputs = commonBuildInputs;
+
+              inherit shellHook;
+            };
+
+            crate2nix = pkgs.mkShell {
+              # inputsFrom = [ (pkgs.callPackage ./crate2nix-example/default.nix { }) ];
+              inputsFrom = [ self.packages.${system}.crate2nixExample ];
+              buildInputs = commonBuildInputs;
+              inherit shellHook;
+            };
         };
       }
     );
