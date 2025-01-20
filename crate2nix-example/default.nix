@@ -7,6 +7,7 @@ in
 pkgs.rustPlatform.buildRustPackage {
   pname = manifest.name;
   version = manifest.version;
+  nativeBuildInputs = [ pkgs.llvmPackages.bintools ];
   src = pkgs.lib.cleanSource ./.;
   cargoLock = {
     lockFile = ./Cargo.lock;
