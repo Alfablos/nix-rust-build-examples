@@ -35,11 +35,12 @@
 
           # First you need to generate a Cargo.lock file for the WORKSPACE! No other Cargo.lock must be present!
           crate2nixExample =
+            # # First run: `nix run nixpkgs#crate2nix -- generate`, which manually generates the Cargo.nix (it must be updated every time!)
             # let
             #   cargoNix = pkgs.callPackage ./Cargo.nix { };
             # in cargoNix.workspaceMembers.crate2nix-example.build;
             let
-              cargoNix = crate2nix.tools.${system}.appliedCargoNix {
+              cargoNix = crate2nix.tools.${system}.appliedCargoNix {  # This method disables parallelism
                 name = "crate2nixExample";
                 src = ./.;
               };
